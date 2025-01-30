@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { ROUTES } from "../constants/navigation.constant";
+import { ROUTES } from "../constants/navigation.constants";
 import SignUp from "../screens/SignUp.screen";
 import Login from "../screens/Login.screen";
 
