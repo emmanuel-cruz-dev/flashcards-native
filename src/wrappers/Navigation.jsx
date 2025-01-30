@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name={ROUTES.signUp} component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>

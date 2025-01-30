@@ -1,4 +1,4 @@
-import { View, TextInput } from "react-native";
+import { View, TextInput, Alert } from "react-native";
 import React, { useState } from "react";
 import { Button, FAB, Overlay } from "@rneui/base";
 import { useModal } from "../hooks/useModal";
@@ -12,6 +12,10 @@ const baseState = () => ({
 function AddNewCard() {
   const { visible, show, hide } = useModal();
   const [form, setForm] = useState(baseState());
+
+  const addNewCard = () => {
+    Alert.alert(form.back, form.front, form.detail);
+  };
 
   return (
     <View>
@@ -28,8 +32,8 @@ function AddNewCard() {
           <TextInput placeholder="Detail ..." onChangeText={setForm} />
 
           <View>
-            <Button title={"Add"}></Button>
-            <Button title={"Close"}></Button>
+            <Button title={"Add"} onPress={addNewCard} />
+            <Button title={"Close"} onPress={hide} />
           </View>
         </View>
       </Overlay>

@@ -43,8 +43,8 @@ function AddNewCategory() {
               title={"Add"}
               onPress={createNewCategory}
               disabled={!valid}
-            ></Button>
-            <Button title={"Close"} onPress={hide}></Button>
+            />
+            <Button title={"Close"} onPress={hide} />
           </View>
         </View>
       </Overlay>
