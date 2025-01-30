@@ -3,11 +3,11 @@ import React from "react";
 import { useModal } from "../hooks/useModal";
 
 function CardItem({ card }) {
-  const [visible, toggle] = useModal();
+  const [visible, toggle] = useModal(true);
   const { front, back, detail } = card;
 
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={toggle}>
       {visible ? (
         <Text>{front}</Text>
       ) : (
