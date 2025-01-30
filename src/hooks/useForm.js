@@ -5,7 +5,7 @@ export const useForm = (initialState) => {
 
   const handleChange = useCallback(
     (update) => {
-      const [key, value] = update;
+      const { key, value } = update;
 
       setForm((prev) => {
         if (!key) {

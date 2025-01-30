@@ -9,6 +9,7 @@ import { MESSAGES } from "../constants/errors.constants";
 import { ROUTES } from "../constants/navigation.constants";
 import { COLORS, COMPONENT, FONT } from "../constants/style.constants";
 import { useUser } from "../hooks/auth";
+import { useNavigation } from "@react-navigation/native";
 
 const styles = StyleSheet.create({
   outer: {
@@ -61,7 +62,8 @@ const baseState = () => ({
   passwordConfirmation: "",
 });
 
-function SignUp({ navigation }) {
+function SignUp() {
+  const navigation = useNavigation();
   const [user, setUser] = useUser();
   const [form, setForm] = useState(baseState());
 
