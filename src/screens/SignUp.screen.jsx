@@ -8,7 +8,8 @@ import { auth } from "../api/db";
 import { MESSAGES } from "../constants/errors.constants";
 import { ROUTES } from "../constants/navigation.constants";
 import { COLORS, COMPONENT, FONT } from "../constants/style.constants";
-import { useUser } from "../hooks/auth";
+// import { useUser } from "../hooks/auth";
+// import { useUser } from "../hooks/useUser";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from "../hooks/useForm";
 
@@ -65,7 +66,8 @@ const baseState = () => ({
 
 function SignUp() {
   const navigation = useNavigation();
-  const [user, setUser] = useUser();
+  // const [user, setUser] = useUser();
+  const [user, setUser] = useState();
   const [form, setForm] = useForm(baseState());
 
   const [valid, setValid] = useState(false);
