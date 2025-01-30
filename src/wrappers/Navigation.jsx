@@ -1,4 +1,5 @@
 import React from "react";
+import { AuthProvider } from "../hooks/auth";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { ROUTES } from "../constants/navigation.constants";
@@ -11,14 +12,16 @@ const Stack = createStackNavigator();
 
 function Navigation() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name={ROUTES.login} component={Login} />
-        <Stack.Screen name={ROUTES.signUp} component={SignUp} />
-        <Stack.Screen name={ROUTES.categories} component={Categories} />
-        <Stack.Screen name={ROUTES.cards.name} component={Cards} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name={ROUTES.login} component={Login} />
+          <Stack.Screen name={ROUTES.signUp} component={SignUp} />
+          <Stack.Screen name={ROUTES.categories} component={Categories} />
+          <Stack.Screen name={ROUTES.cards.name} component={Cards} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
   );
 }
 

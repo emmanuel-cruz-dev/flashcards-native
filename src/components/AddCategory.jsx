@@ -4,7 +4,7 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import { categories } from "../api/db";
 import { COLORS, COMPONENT, FONT } from "../constants/style.constants";
 import { useUser } from "../hooks/auth";
-import { useModal } from "../hooks/modal";
+import { useModal } from "../hooks/useModal";
 
 const styles = StyleSheet.create({
   button: {
