@@ -1,15 +1,31 @@
 import { View, TextInput } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { FAB, Overlay } from "@rneui/base";
+import { useModal } from "../hooks/useModal";
+
+const baseState = () => ({
+  front: "",
+  back: "",
+  detail: "",
+});
 
 function AddNewCard() {
+  const { visible, show, hide } = useModal();
+  const [form, setForm] = useState(baseState());
+
   return (
     <View>
-      <FAB icon="add" buttonStyle={{ backgroundColor: "red" }} />
+      <FAB icon="add" buttonStyle={{ backgroundColor: "red" }} onPress={show} />
 
-      <Overlay>
+      <Overlay
+        isVisible={visible}
+        onBackdropPress={hide}
+        overlayStyle={{ backgroundColor: "white" }}
+      >
         <View>
-          <TextInput placeholder="Card" />
+          <TextInput placeholder="Front ..." onChangeText={setForm} />
+          <TextInput placeholder="Back ..." onChangeText={setForm} />
+          <TextInput placeholder="Detail ..." onChangeText={setForm} />
         </View>
       </Overlay>
     </View>
