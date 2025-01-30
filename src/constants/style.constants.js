@@ -56,6 +56,10 @@ export const COMPONENT = {
     paddingVertical: SIZE.xs,
     paddingHorizontal: SIZE.md,
     borderRadius: SIZE.lg,
+
+    title: {
+      ...FONT.button,
+    },
     main: {
       button: {
         backgroundColor: COLORS.main,
@@ -66,11 +70,12 @@ export const COMPONENT = {
       },
     },
     highlight: {
-      backgroundColor: COLORS.highlight,
-      borderRadius: 36,
-      color: COLORS.text,
-      paddingHorizontal: 12,
-      width: "80%",
+      button: {
+        backgroundColor: COLORS.highlight,
+      },
+      title: {
+        color: COLORS.text,
+      },
     },
   },
 };
