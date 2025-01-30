@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useCallback, useState, useEffect } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { auth } from "../api/db";
-import { MESSAGES } from "../constants/errors.contstants";
+import { MESSAGES } from "../constants/errors.constants";
 import { ROUTES } from "../constants/navigation.constants";
 import { COLORS, COMPONENT, FONT } from "../constants/style.constants";
 import { useUser } from "../hooks/auth";
