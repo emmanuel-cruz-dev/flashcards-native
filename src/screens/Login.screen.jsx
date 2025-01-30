@@ -6,40 +6,42 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import { auth } from "../api/db";
 import { MESSAGES } from "../constants/errors.constants";
 import { ROUTES } from "../constants/navigation.constants";
-import { COLORS, COMPONENT, FONT } from "../constants/style.constants";
+import { COLORS, COMPONENT, FONT, SIZE } from "../constants/style.constants";
 import { useUser } from "../hooks/auth";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from "../hooks/useForm";
 
 const styles = StyleSheet.create({
   outer: {
-    backgroundColor: COLORS.highlight,
-    padding: 36,
+    backgroundColor: COLORS.main,
+    padding: SIZE.lg,
     height: "100%",
   },
   inner: {
-    backgroundColor: "white",
-    borderRadius: 12,
-    flex: 1,
+    backgroundColor: COLORS.background,
+    padding: SIZE.lg,
     alignContent: "center",
     justifyContent: "center",
-    padding: 36,
+    borderRadius: SIZE.md,
+    height: "100%",
   },
   input: {
+    ...COMPONENT.input,
     borderBottomColor: COLORS.main,
-    borderBottomWidth: 1,
-    marginBottom: 24,
-    padding: 12,
-    paddingBottom: 6,
   },
   title: {
     ...FONT.h1,
-    marginBottom: 32,
+    marginBottom: SIZE.lg,
   },
   button: {
     ...COMPONENT.button.main,
-    marginVertical: 32,
-    marginLeft: "10%",
+    ...COMPONENT.button.main.button,
+    alignSelf: "center",
+    marginBottom: SIZE.lg,
+  },
+  buttonTitle: {
+    ...COMPONENT.button.title,
+    ...COMPONENT.button.main.title,
   },
   link: {
     button: {
@@ -51,6 +53,7 @@ const styles = StyleSheet.create({
     },
   },
   inputContainer: {
+    marginBottom: SIZE.lg,
     alignContent: "center",
     justifyContent: "center",
   },
@@ -132,7 +135,7 @@ function Login() {
           />
 
           <Button
-            titleStyle={FONT.button}
+            titleStyle={styles.buttonTitle}
             buttonStyle={styles.button}
             title="Login"
             onPress={doLogin}
