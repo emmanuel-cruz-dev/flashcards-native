@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export const useForm = (initialState) => {
   const [form, setForm] = useState(initialState);
 
-  const handleChange = ({ value, key }) => {
-    setForm((prev) => ({ ...prev, [key]: value }));
-  };
+  const handleChange = useCallback(
+    (update) => {
+      const [key, value] = update;
+
+      setForm((prev) => ({ ...prev, [key]: value }));
+    },
+    [setForm]
+  );
 
   return [form, handleChange];
 };
