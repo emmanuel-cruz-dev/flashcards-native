@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useModal } from "../hooks/useModal";
-import { useUser } from "../hooks/useUser";
+// import { useUser } from "../hooks/useUser";
+import { useUser } from "../hooks/auth";
 import { TextInput, View } from "react-native";
 import { Button, FAB, Overlay } from "@rneui/base";
 import { dbCategories } from "../api/db";

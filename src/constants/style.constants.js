@@ -9,9 +9,19 @@ export const COLORS = {
 };
 
 export const SIZE = {
+  xs: 6,
   sm: 12,
   md: 24,
   lg: 36,
+  xl: 48,
+};
+
+export const FONT_SIZE = {
+  sm: 16,
+  md: 18,
+  lg: 20,
+  xl: 32,
+  xxl: 42,
 };
 
 export const FONT = {
