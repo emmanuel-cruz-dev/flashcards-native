@@ -6,11 +6,11 @@ import SignUp from "../screens/SignUp.screen";
 
 const Stack = createStackNavigator();
 
-function Navigation(params) {
+function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="ROUTES.signUp" component={SignUp} />
+        <Stack.Screen name={ROUTES.signUp} component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
   );
