@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
 import { Text, View } from "react-native";
 import AddNewCard from "../components/AddNewCard";
@@ -11,11 +11,22 @@ function Cards() {
   const cards = useCards(category.id);
   const [active, setActive] = useState(null);
 
-  const showNewCard = () => {};
+  const showNewCard = useCallback(() => {
+    setActive((prev) => {
+      let newId;
+      do {
+        newId = Math.floor(Math.random() * cards.length);
+      } while (newId === prev);
+
+      return newId;
+    });
+  }, [cards]);
 
   useEffect(() => {
     if (!cards.length) return;
     if (cards.length === 1) setActive(cards[0].id);
+
+    showNewCard();
   }, [cards]);
 
   const activeCard = cards.find((card) => card.id === active);
