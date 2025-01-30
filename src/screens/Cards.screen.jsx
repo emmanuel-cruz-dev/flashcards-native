@@ -1,10 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import AddNewCard from "../components/AddNewCard";
 import { useCards } from "../hooks/data";
 import { Button } from "@rneui/base";
 import CardItem from "../components/CardItem";
+import { pluralize } from "../utils/text";
+import { FONT } from "../constants/style.constants";
+
+const styles = StyleSheet.create({
+  h2: { ...FONT.h2 },
+  sub: { ...FONT.sub },
+});
 
 function Cards() {
   const route = useRoute();
@@ -35,6 +42,13 @@ function Cards() {
 
   return (
     <View>
+      <View style={styles.textContainer}>
+        <Text style={styles.h2}>{category.name}</Text>
+        <Text style={styles.sub}>
+          {pluralize({ quantity: cards.length, text: "Card" })}
+        </Text>
+      </View>
+
       <AddNewCard></AddNewCard>
       <Text>Category: {category.name}</Text>
 

@@ -8,6 +8,12 @@ export const COLORS = {
   detail: "#8c8c8c",
 };
 
+export const SIZE = {
+  sm: 12,
+  md: 24,
+  lg: 36,
+};
+
 export const FONT = {
   h1: {
     fontSize: 32,

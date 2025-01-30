@@ -5,6 +5,7 @@ import CategoryCard from "../components/CategoryCard";
 import { FONT } from "../constants/style.constants";
 import { useCategories } from "../hooks/data";
 import UserInfo from "../wrappers/UserInfo";
+import AddNewCategory from "../components/AddNewCategory";
 
 const styles = StyleSheet.create({
   h2: { ...FONT.h2 },
@@ -22,6 +23,7 @@ function Categories() {
       </View>
 
       <AddCategory />
+      <AddNewCategory />
 
       <View>
         {categories.length ? (
