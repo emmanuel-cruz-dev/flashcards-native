@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { categories as DBCategories, cards as DBCards } from "../api/db";
+import { dbCategories as DBCategories, dbCards as DBCards } from "../api/db";
 import { useUser } from "./auth";
 
 export const useCategories = () => {
