@@ -29,13 +29,12 @@ const styles = StyleSheet.create({
   input: {
     borderBottomColor: COLORS.main,
     borderBottomWidth: 1,
-    marginBottom: 24,
-    padding: 12,
-    paddingBottom: 6,
+    marginBottom: SIZE.sm,
+    paddingTop: SIZE.sm,
   },
   title: {
     ...FONT.h1,
-    marginBottom: 32,
+    marginBottom: SIZE.lg,
   },
   button: {
     ...COMPONENT.button.main,
@@ -52,6 +51,7 @@ const styles = StyleSheet.create({
     },
   },
   inputContainer: {
+    marginBottom: SIZE.lg,
     alignContent: "center",
     justifyContent: "center",
   },
@@ -147,14 +147,14 @@ function SignUp() {
         </View>
 
         <Button
-          titleStyle={FONT.button}
+          titleStyle={styles.buttonTitle}
           buttonStyle={styles.button}
           title="Sign Up"
           onPress={doSignUp}
           disabled={!valid}
         />
 
-        {error && <Text>{error}</Text>}
+        {error && <Text style={styles.error}>{error}</Text>}
 
         <Button
           buttonStyle={styles.link.button}
