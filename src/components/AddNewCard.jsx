@@ -1,6 +1,6 @@
 import { View, TextInput } from "react-native";
 import React, { useState } from "react";
-import { FAB, Overlay } from "@rneui/base";
+import { Button, FAB, Overlay } from "@rneui/base";
 import { useModal } from "../hooks/useModal";
 
 const baseState = () => ({
@@ -26,6 +26,11 @@ function AddNewCard() {
           <TextInput placeholder="Front ..." onChangeText={setForm} />
           <TextInput placeholder="Back ..." onChangeText={setForm} />
           <TextInput placeholder="Detail ..." onChangeText={setForm} />
+
+          <View>
+            <Button title={"Add"}></Button>
+            <Button title={"Close"}></Button>
+          </View>
         </View>
       </Overlay>
     </View>
