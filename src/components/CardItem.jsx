@@ -15,9 +15,12 @@ const styles = StyleSheet.create({
   title: {
     ...FONT.h3,
     textAlign: "center",
+    color: COLORS.textLight,
   },
   sub: {
+    ...FONT.sub,
     textAlign: "center",
+    color: COLORS.detail,
   },
 });
 
