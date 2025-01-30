@@ -7,7 +7,16 @@ export const useForm = (initialState) => {
     (update) => {
       const [key, value] = update;
 
-      setForm((prev) => ({ ...prev, [key]: value }));
+      setForm((prev) => {
+        if (!key) {
+          return update;
+        }
+
+        return {
+          ...prev,
+          [key]: value,
+        };
+      });
     },
     [setForm]
   );
