@@ -26,38 +26,44 @@ export const FONT_SIZE = {
 
 export const FONT = {
   h1: {
-    fontSize: 32,
+    fontSize: FONT_SIZE.xxl,
     fontWeight: 900,
     color: COLORS.text,
   },
   h2: {
-    fontSize: 38,
+    fontSize: FONT_SIZE.xl,
     fontWeight: 600,
     color: COLORS.main,
   },
   h3: {
-    fontSize: 32,
+    fontSize: FONT_SIZE.xl,
     fontWeight: 500,
   },
   sub: {
-    fontSize: 18,
+    fontSize: FONT_SIZE.md,
     fontWeight: 400,
     color: COLORS.detail,
   },
   button: {
     fontWeight: 700,
-    fontSize: 20,
+    fontSize: FONT_SIZE.lg,
   },
 };
 
 export const COMPONENT = {
   button: {
+    width: "80%",
+    paddingVertical: SIZE.xs,
+    paddingHorizontal: SIZE.md,
+    borderRadius: SIZE.lg,
     main: {
-      backgroundColor: COLORS.main,
-      borderRadius: 36,
-      color: COLORS.textLight,
-      paddingHorizontal: 12,
-      width: "80%",
+      button: {
+        backgroundColor: COLORS.main,
+      },
+      title: {
+        ...FONT.button,
+        color: COLORS.textLight,
+      },
     },
     highlight: {
       backgroundColor: COLORS.highlight,
