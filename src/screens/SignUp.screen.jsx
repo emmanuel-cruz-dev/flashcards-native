@@ -38,6 +38,11 @@ const styles = StyleSheet.create({
     ...COMPONENT.button,
     ...COMPONENT.button.main.button,
     alignSelf: "center",
+    marginBottom: SIZE.lg,
+  },
+  buttonTitle: {
+    ...COMPONENT.button.title,
+    ...COMPONENT.button.main.title,
   },
   link: {
     button: {
@@ -45,7 +50,6 @@ const styles = StyleSheet.create({
     },
     title: {
       ...FONT.sub,
-      fontSize: 14,
     },
   },
   inputContainer: {

@@ -41,13 +41,13 @@ export const FONT = {
     fontWeight: 500,
   },
   sub: {
-    fontSize: FONT_SIZE.md,
+    fontSize: FONT_SIZE.sm,
     fontWeight: 400,
     color: COLORS.detail,
   },
   button: {
-    fontWeight: 700,
     fontSize: FONT_SIZE.lg,
+    fontWeight: 700,
   },
 };
 
