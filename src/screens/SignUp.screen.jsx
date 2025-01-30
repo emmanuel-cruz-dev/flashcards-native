@@ -10,6 +10,7 @@ import { ROUTES } from "../constants/navigation.constants";
 import { COLORS, COMPONENT, FONT } from "../constants/style.constants";
 import { useUser } from "../hooks/auth";
 import { useNavigation } from "@react-navigation/native";
+import { useForm } from "../hooks/useForm";
 
 const styles = StyleSheet.create({
   outer: {
@@ -65,14 +66,10 @@ const baseState = () => ({
 function SignUp() {
   const navigation = useNavigation();
   const [user, setUser] = useUser();
-  const [form, setForm] = useState(baseState());
+  const [form, setForm] = useForm(baseState());
 
   const [valid, setValid] = useState(false);
   const [error, setError] = useState(null);
-
-  const handleChange = ({ value, key }) => {
-    setForm((prev) => ({ ...prev, [key]: value }));
-  };
 
   const doSignUp = useCallback(async () => {
     const [signUpError, userCredentials] = await to(
@@ -127,7 +124,7 @@ function SignUp() {
             placeholder="Email Address"
             value={email}
             textContentType="emailAddress"
-            onChangeText={(value) => handleChange({ key: "email", value })}
+            onChangeText={(value) => setForm({ key: "email", value })}
           />
           <TextInput
             style={styles.input}
@@ -135,7 +132,7 @@ function SignUp() {
             value={password}
             textContentType="password"
             secureTextEntry
-            onChangeText={(value) => handleChange({ key: "password", value })}
+            onChangeText={(value) => setForm({ key: "password", value })}
           />
           <TextInput
             style={styles.input}
@@ -144,7 +141,7 @@ function SignUp() {
             textContentType="password"
             secureTextEntry
             onChangeText={(value) =>
-              handleChange({ key: "passwordConfirmation", value })
+              setForm({ key: "passwordConfirmation", value })
             }
           />
 
