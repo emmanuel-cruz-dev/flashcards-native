@@ -17,3 +17,7 @@ const firebaseConfig = {
 export const app = firebase.initializeApp(firebaseConfig);
 export const db = firebase.firestore(app);
 export const auth = getAuth(app);
+
+// Collections
+export const dbCategories = db.collection("categories");
+export const dbCards = db.collection("cards");

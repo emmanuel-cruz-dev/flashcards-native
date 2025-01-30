@@ -1,8 +1,11 @@
-import { View, TextInput, Alert } from "react-native";
+import { View, TextInput } from "react-native";
 import React from "react";
 import { Button, FAB, Overlay } from "@rneui/base";
 import { useModal } from "../hooks/useModal";
 import { useForm } from "../hooks/useForm";
+import { dbCards } from "../api/db";
+import { useUser } from "../hooks/auth";
+import { useRoute } from "@react-navigation/native";
 
 const baseState = () => ({
   front: "",
@@ -11,11 +14,18 @@ const baseState = () => ({
 });
 
 function AddNewCard() {
+  const [user] = useUser();
   const { visible, show, hide } = useModal();
   const [form, setForm] = useForm(baseState());
+  const route = useRoute();
 
   const addNewCard = () => {
-    Alert.alert(form.back, form.front, form.detail);
+    dbCards.add({
+      ...form,
+      userId: user.uid,
+      categoryId: route.params.category.id,
+    });
+    hide();
   };
 
   return (

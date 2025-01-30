@@ -15,18 +15,19 @@ function Cards() {
     setActive((prev) => {
       let newId;
       do {
-        newId = Math.floor(Math.random() * cards.length);
-      } while (newId === prev);
+        newId = cards[Math.floor(Math.random() * cards.length)].id;
+      } while (newId && newId === prev);
 
       return newId;
     });
   }, [cards]);
 
   useEffect(() => {
+    if (active) return;
     if (!cards.length) return;
-    if (cards.length === 1) setActive(cards[0].id);
 
-    showNewCard();
+    if (cards.length === 1) setActive(cards[0].id);
+    else showNewCard();
   }, [cards]);
 
   const activeCard = cards.find((card) => card.id === active);
@@ -39,7 +40,11 @@ function Cards() {
       {!cards.length && <Text>Try adding a new card</Text>}
       {active && <Text>{activeCard.front}</Text>}
 
-      <Button title={"Choose new"} onPress={showNewCard} />
+      <Button
+        title={"Choose new"}
+        onPress={showNewCard}
+        disabled={cards.length < 2}
+      />
     </View>
   );
 }
