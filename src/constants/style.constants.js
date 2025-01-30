@@ -6,6 +6,7 @@ export const COLORS = {
   text: "#151515",
   textLight: "#FFFFFF",
   detail: "#8c8c8c",
+  background: "#FFFFFF",
 };
 
 export const SIZE = {

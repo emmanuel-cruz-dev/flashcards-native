@@ -7,7 +7,7 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import { auth } from "../api/db";
 import { MESSAGES } from "../constants/errors.constants";
 import { ROUTES } from "../constants/navigation.constants";
-import { COLORS, COMPONENT, FONT } from "../constants/style.constants";
+import { COLORS, COMPONENT, FONT, SIZE } from "../constants/style.constants";
 import { useUser } from "../hooks/auth";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from "../hooks/useForm";
@@ -15,16 +15,16 @@ import { useForm } from "../hooks/useForm";
 const styles = StyleSheet.create({
   outer: {
     backgroundColor: COLORS.main,
-    padding: 36,
+    padding: SIZE.lg,
     height: "100%",
   },
   inner: {
-    backgroundColor: "white",
-    borderRadius: 12,
-    flex: 1,
+    backgroundColor: COLORS.background,
+    padding: SIZE.lg,
     alignContent: "center",
     justifyContent: "center",
-    padding: 36,
+    borderRadius: SIZE.lg,
+    height: "100%",
   },
   input: {
     borderBottomColor: COLORS.main,
@@ -144,15 +144,15 @@ function SignUp() {
               setForm({ key: "passwordConfirmation", value })
             }
           />
-
-          <Button
-            titleStyle={FONT.button}
-            buttonStyle={styles.button}
-            title="Sign Up"
-            onPress={doSignUp}
-            disabled={!valid}
-          />
         </View>
+
+        <Button
+          titleStyle={FONT.button}
+          buttonStyle={styles.button}
+          title="Sign Up"
+          onPress={doSignUp}
+          disabled={!valid}
+        />
 
         {error && <Text>{error}</Text>}
 
