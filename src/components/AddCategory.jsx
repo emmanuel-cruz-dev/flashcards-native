@@ -1,7 +1,7 @@
 import { Button, FAB, Overlay } from "@rneui/base";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import { categories } from "../api/db";
+import { dbCategories } from "../api/db";
 import { COLORS, COMPONENT, FONT } from "../constants/style.constants";
 import { useUser } from "../hooks/auth";
 import { useModal } from "../hooks/useModal";
@@ -46,7 +46,7 @@ function AddCategory() {
   const { visible, show, hide } = useModal();
 
   const createCategory = () => {
-    categories.add({
+    dbCategories.add({
       name,
       userId: user.uid,
     });
