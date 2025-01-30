@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useNavigation } from "@react-navigation/native";
 import { Avatar, BottomSheet, ListItem } from "@rneui/base";
 import React, { useEffect, useState } from "react";
@@ -54,5 +55,9 @@ function UserInfo({ children }) {
     </View>
   );
 }
+
+UserInfo.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default UserInfo;
