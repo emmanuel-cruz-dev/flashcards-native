@@ -27,19 +27,17 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   input: {
+    ...COMPONENT.input,
     borderBottomColor: COLORS.main,
-    borderBottomWidth: 1,
-    marginBottom: SIZE.sm,
-    paddingTop: SIZE.sm,
   },
   title: {
     ...FONT.h1,
     marginBottom: SIZE.lg,
   },
   button: {
-    ...COMPONENT.button.main,
-    marginVertical: 32,
-    marginLeft: "10%",
+    ...COMPONENT.button,
+    ...COMPONENT.button.main.button,
+    alignSelf: "center",
   },
   link: {
     button: {

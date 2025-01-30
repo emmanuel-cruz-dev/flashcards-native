@@ -79,4 +79,9 @@ export const COMPONENT = {
       },
     },
   },
+  input: {
+    borderBottomWidth: 1,
+    marginBottom: SIZE.sm,
+    paddingTop: SIZE.sm,
+  },
 };
