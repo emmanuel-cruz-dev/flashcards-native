@@ -6,9 +6,13 @@ import { useCards } from "../hooks/data";
 import { Button } from "@rneui/base";
 import CardItem from "../components/CardItem";
 import { pluralize } from "../utils/text";
-import { FONT } from "../constants/style.constants";
+import { FONT, SIZE } from "../constants/style.constants";
+import UserInfo from "../wrappers/UserInfo";
 
 const styles = StyleSheet.create({
+  textContainer: {
+    marginBottom: SIZE.lg,
+  },
   h2: { ...FONT.h2 },
   sub: { ...FONT.sub },
 });
@@ -41,7 +45,7 @@ function Cards() {
   const activeCard = cards.find((card) => card.id === active);
 
   return (
-    <View>
+    <UserInfo>
       <View style={styles.textContainer}>
         <Text style={styles.h2}>{category.name}</Text>
         <Text style={styles.sub}>
@@ -61,7 +65,7 @@ function Cards() {
         onPress={showNewCard}
         disabled={cards.length < 2}
       />
-    </View>
+    </UserInfo>
   );
 }
 

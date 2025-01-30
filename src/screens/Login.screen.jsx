@@ -13,7 +13,7 @@ import { useForm } from "../hooks/useForm";
 
 const styles = StyleSheet.create({
   outer: {
-    backgroundColor: COLORS.main,
+    backgroundColor: COLORS.highlight,
     padding: SIZE.lg,
     height: "100%",
   },
@@ -27,21 +27,21 @@ const styles = StyleSheet.create({
   },
   input: {
     ...COMPONENT.input,
-    borderBottomColor: COLORS.main,
+    borderBottomColor: COLORS.highlight,
   },
   title: {
     ...FONT.h1,
     marginBottom: SIZE.lg,
   },
   button: {
-    ...COMPONENT.button.main,
-    ...COMPONENT.button.main.button,
+    ...COMPONENT.button.highlight,
+    ...COMPONENT.button.highlight.button,
     alignSelf: "center",
     marginBottom: SIZE.lg,
   },
   buttonTitle: {
     ...COMPONENT.button.title,
-    ...COMPONENT.button.main.title,
+    ...COMPONENT.button.highlight.title,
   },
   link: {
     button: {

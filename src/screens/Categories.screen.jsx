@@ -2,12 +2,15 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AddCategory from "../components/AddCategory";
 import CategoryCard from "../components/CategoryCard";
-import { FONT } from "../constants/style.constants";
+import { FONT, SIZE } from "../constants/style.constants";
 import { useCategories } from "../hooks/data";
 import UserInfo from "../wrappers/UserInfo";
 import AddNewCategory from "../components/AddNewCategory";
 
 const styles = StyleSheet.create({
+  textContainer: {
+    marginBottom: SIZE.lg,
+  },
   h2: { ...FONT.h2 },
   sub: { ...FONT.sub },
 });
@@ -17,7 +20,7 @@ function Categories() {
 
   return (
     <UserInfo>
-      <View>
+      <View style={styles.textContainer}>
         <Text style={styles.h2}>Flashcards</Text>
         <Text style={styles.sub}>Select your set</Text>
       </View>
