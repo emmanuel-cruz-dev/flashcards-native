@@ -1,10 +1,17 @@
-import { Text, View } from "react-native";
+import { View, TextInput } from "react-native";
 import React from "react";
+import { FAB, Overlay } from "@rneui/base";
 
 function AddNewCard() {
   return (
     <View>
-      <Text>Add NewCard</Text>
+      <FAB icon="add" buttonStyle={{ backgroundColor: "red" }} />
+
+      <Overlay>
+        <View>
+          <TextInput placeholder="Card" />
+        </View>
+      </Overlay>
     </View>
   );
 }
