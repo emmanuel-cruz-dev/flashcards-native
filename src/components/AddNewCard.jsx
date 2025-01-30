@@ -1,7 +1,8 @@
 import { View, TextInput, Alert } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { Button, FAB, Overlay } from "@rneui/base";
 import { useModal } from "../hooks/useModal";
+import { useForm } from "../hooks/useForm";
 
 const baseState = () => ({
   front: "",
@@ -11,7 +12,7 @@ const baseState = () => ({
 
 function AddNewCard() {
   const { visible, show, hide } = useModal();
-  const [form, setForm] = useState(baseState());
+  const [form, setForm] = useForm(baseState());
 
   const addNewCard = () => {
     Alert.alert(form.back, form.front, form.detail);
@@ -27,9 +28,21 @@ function AddNewCard() {
         overlayStyle={{ backgroundColor: "white" }}
       >
         <View>
-          <TextInput placeholder="Front ..." onChangeText={setForm} />
-          <TextInput placeholder="Back ..." onChangeText={setForm} />
-          <TextInput placeholder="Detail ..." onChangeText={setForm} />
+          <TextInput
+            value={form.front}
+            placeholder="Front ..."
+            onChangeText={(value) => setForm({ key: "front", value })}
+          />
+          <TextInput
+            value={form.back}
+            placeholder="Back ..."
+            onChangeText={(value) => setForm({ key: "back", value })}
+          />
+          <TextInput
+            value={form.detail}
+            placeholder="Detail ..."
+            onChangeText={(value) => setForm({ key: "detail", value })}
+          />
 
           <View>
             <Button title={"Add"} onPress={addNewCard} />
