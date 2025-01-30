@@ -4,6 +4,7 @@ import { Text, View } from "react-native";
 import AddNewCard from "../components/AddNewCard";
 import { useCards } from "../hooks/data";
 import { Button } from "@rneui/base";
+import CardItem from "../components/CardItem";
 
 function Cards() {
   const route = useRoute();
@@ -38,7 +39,8 @@ function Cards() {
       <Text>Category: {category.name}</Text>
 
       {!cards.length && <Text>Try adding a new card</Text>}
-      {active && <Text>{activeCard.front}</Text>}
+      {/* {active && <Text>{activeCard.front}</Text>} */}
+      {!!active && <CardItem card={activeCard} />}
 
       <Button
         title={"Choose new"}
