@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
     width: "auto",
     padding: 0,
   },
-  closeTitle: {},
 });
 
 function AddNewCategory() {
