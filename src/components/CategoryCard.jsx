@@ -2,29 +2,22 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 import { ROUTES } from "../constants/navigation.constants";
-import { COLORS, FONT } from "../constants/style.constants";
+import { COLORS, FONT, SIZE } from "../constants/style.constants";
 import { useCards } from "../hooks/data";
 import { pluralize } from "../utils/text";
 
 const styles = StyleSheet.create({
-  card: {
-    padding: 24,
-    marginBottom: 24,
-    borderRadius: 12,
+  general: {
+    card: {
+      borderRadius: SIZE.sm,
+      padding: SIZE.lg,
+      backgroundColor: "#d7d7d7",
+      marginBottom: SIZE.lg,
+    },
+    title: {
+      ...FONT.h3,
+    },
   },
-  button: {
-    paddingVertical: 6,
-    paddingHorizontal: 24,
-    alignSelf: "flex-end",
-    borderRadius: 24,
-  },
-  title: {
-    ...FONT.h3,
-  },
-  buttonText: {
-    ...FONT.button,
-  },
-
   even: {
     card: {
       backgroundColor: COLORS.highlight,
@@ -55,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function CategoryCard({ category, even }) {
+function CategoryCard(category, even) {
   const navigation = useNavigation();
   const { name, id } = category;
   const cards = useCards(id);
@@ -64,10 +57,10 @@ function CategoryCard({ category, even }) {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate(ROUTES.cards.name, { category })}
-      style={[styles.card, customStyle.card]}
+      style={styles.general.card}
       activeOpacity={0.5}
     >
-      <Text style={[styles.title, customStyle.title]}>{name}</Text>
+      <Text style={styles.general.title}>{name}</Text>
 
       {!!cards.length && (
         <View style={[styles.button, customStyle.button]}>
