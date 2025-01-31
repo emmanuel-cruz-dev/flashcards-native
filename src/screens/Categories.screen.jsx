@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   textContainer: {
     marginBottom: SIZE.lg,
   },
-  h2: { ...FONT.h2 },
+  title: { ...FONT.h2 },
   sub: { ...FONT.sub },
 });
 
@@ -21,8 +21,8 @@ function Categories() {
   return (
     <UserInfo>
       <View style={styles.textContainer}>
-        <Text style={styles.h2}>Flashcards</Text>
-        <Text style={styles.sub}>Select your set</Text>
+        <Text style={styles.title}>Flashcards</Text>
+        <Text style={styles.sub}>Select your set card</Text>
       </View>
 
       <AddCategory />

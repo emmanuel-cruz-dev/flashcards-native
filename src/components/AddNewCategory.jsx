@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   fab: {
     backgroundColor: COLORS.highlight,
     alignSelf: "flex-end",
-    marginVertical: SIZE.lg,
+    marginBottom: SIZE.lg,
   },
   overlay: {
     ...COMPONENT.dialog,
@@ -90,7 +90,7 @@ function AddNewCategory() {
           <TextInput
             placeholder="Category name ..."
             onChangeText={setCategoryName}
-            placeholderTextColor={COLORS.detail}
+            placeholderTextColor={COLORS.detailLight}
             value={categoryName}
             style={styles.input}
           />

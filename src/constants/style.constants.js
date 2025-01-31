@@ -5,7 +5,8 @@ export const COLORS = {
   highlightDarker: "#C7A66E",
   text: "#151515",
   textLight: "#FFFFFF",
-  detail: "#dcdcdc",
+  detail: "#8c8c8c",
+  detailLight: "#dcdcdc",
   background: "#FFFFFF",
   danger: "#F82045",
 };
