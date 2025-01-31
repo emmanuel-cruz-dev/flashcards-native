@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { Button } from "@rneui/base";
@@ -85,5 +86,10 @@ function CategoryCard({ category, even }) {
     </TouchableOpacity>
   );
 }
+
+CategoryCard.propTypes = {
+  category: PropTypes.object.isRequired,
+  even: PropTypes.bool,
+};
 
 export default CategoryCard;
