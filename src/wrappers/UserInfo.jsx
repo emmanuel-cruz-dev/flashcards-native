@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import { useNavigation } from "@react-navigation/native";
-import { Avatar, BottomSheet, ListItem } from "@rneui/base";
+import { Avatar, BottomSheet, Icon, ListItem } from "@rneui/base";
 import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { auth } from "../api/db";
 import { ROUTES } from "../constants/navigation.constants";
 import { useUser } from "../hooks/auth";
-import { COLORS, FONT, SIZE } from "../constants/style.constants";
+import { COLORS, FONT, FONT_SIZE, SIZE } from "../constants/style.constants";
 import { useModal } from "../hooks/useModal";
 
 const styles = StyleSheet.create({
@@ -17,8 +17,9 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
   },
   logout: {
-    ...FONT.h3,
+    ...FONT.h1,
     color: COLORS.danger,
+    fontSize: FONT_SIZE.lg,
   },
 });
 
@@ -55,12 +56,14 @@ function UserInfo({ children }) {
 
       <BottomSheet isVisible={visible} onBackdropPress={hide}>
         <ListItem onPress={doLogout}>
+          <Icon name="logout" color={COLORS.danger} />
           <ListItem.Content>
             <ListItem.Title style={styles.logout}>Logout</ListItem.Title>
           </ListItem.Content>
         </ListItem>
 
         <ListItem onPress={hide}>
+          <Icon name="close" color={COLORS.text} />
           <ListItem.Content>
             <ListItem.Title>Close</ListItem.Title>
           </ListItem.Content>
