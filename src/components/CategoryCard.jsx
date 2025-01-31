@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, Button } from "react-native";
 import { ROUTES } from "../constants/navigation.constants";
 import { COLORS, FONT, SIZE } from "../constants/style.constants";
 import { useCards } from "../hooks/data";
@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
   title: {
     ...FONT.h3,
   },
+  button: {},
+  buttonTitle: {},
 
   even: {
     opacity: COLORS.highlightDarker,
@@ -28,7 +30,7 @@ const styles = StyleSheet.create({
     title: {
       color: COLORS.main,
     },
-    buttonText: {
+    buttonTitle: {
       color: COLORS.highlight,
     },
   },
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
     title: {
       color: COLORS.textLight,
     },
-    buttonText: {
+    buttonTitle: {
       color: COLORS.main,
     },
   },
@@ -61,14 +63,12 @@ function CategoryCard({ category, even }) {
       style={[styles.card, cardStyle.card]}
       activeOpacity={0.8}
     >
-      <Text style={styles.title}>{name}</Text>
+      <Text style={[styles.title, cardStyle.title]}>{name}</Text>
 
       {!!cards.length && (
-        <View style={[styles.button, cardStyle.button]}>
-          <Text style={[styles.title, cardStyle.title]}>
-            {pluralize({ noun: "Card", number: cards.length })}
-          </Text>
-        </View>
+        <Button
+          title={pluralize({ quantity: cards.length, text: "Card" })}
+        ></Button>
       )}
     </TouchableOpacity>
   );
