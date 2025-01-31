@@ -7,6 +7,7 @@ export const COLORS = {
   textLight: "#FFFFFF",
   detail: "#8c8c8c",
   background: "#FFFFFF",
+  danger: "#F82045",
 };
 
 export const SIZE = {
