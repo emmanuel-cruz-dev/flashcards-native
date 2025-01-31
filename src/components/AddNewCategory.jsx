@@ -5,11 +5,25 @@ import { useUser } from "../hooks/auth";
 import { StyleSheet, TextInput, View } from "react-native";
 import { Button, FAB, Overlay } from "@rneui/base";
 import { dbCategories } from "../api/db";
+import { COLORS, COMPONENT, SIZE } from "../constants/style.constants";
 
 const styles = StyleSheet.create({
-  fab: {},
-  overlay: {},
-  input: {},
+  fab: {
+    backgroundColor: COLORS.highlight,
+    alignSelf: "flex-end",
+    marginVertical: SIZE.lg,
+  },
+  overlay: {
+    backgroundColor: COLORS.main,
+    borderRadius: SIZE.sm,
+    width: "80%",
+    padding: SIZE.md,
+  },
+  input: {
+    ...COMPONENT.input,
+    borderBottomColor: COLORS.textLight,
+    color: COLORS.textLight,
+  },
   button: {},
   buttonTitle: {},
   close: {},
@@ -36,7 +50,16 @@ function AddNewCategory() {
 
   return (
     <View>
-      <FAB icon="add" buttonStyle={styles.fab} onPress={show} />
+      <View style={styles.fabContainer}>
+        <FAB
+          icon={{ name: "add", color: COLORS.textLight }}
+          style={styles.fab}
+          buttonStyle={{
+            backgroundColor: COLORS.highlight,
+          }}
+          onPress={show}
+        />
+      </View>
 
       <Overlay
         isVisible={visible}
@@ -61,8 +84,8 @@ function AddNewCategory() {
             <Button
               title={"Close"}
               onPress={hide}
-              buttonStyle={styles.button}
-              titleStyle={styles.buttonTitle}
+              buttonStyle={styles.close}
+              titleStyle={styles.closeTitle}
             />
           </View>
         </View>
