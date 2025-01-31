@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { TouchableOpacity, Text, StyleSheet, Button } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { Button } from "@rneui/base";
 import { ROUTES } from "../constants/navigation.constants";
 import { COLORS, COMPONENT, FONT, SIZE } from "../constants/style.constants";
 import { useCards } from "../hooks/data";
