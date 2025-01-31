@@ -69,16 +69,14 @@ function AddNewCategory() {
 
   return (
     <View>
-      <View style={styles.fabContainer}>
-        <FAB
-          icon={{ name: "add", color: COLORS.textLight }}
-          style={styles.fab}
-          buttonStyle={{
-            backgroundColor: COLORS.highlight,
-          }}
-          onPress={show}
-        />
-      </View>
+      <FAB
+        icon={{ name: "add", color: COLORS.textLight }}
+        style={styles.fab}
+        buttonStyle={{
+          backgroundColor: COLORS.highlight,
+        }}
+        onPress={show}
+      />
 
       <Overlay
         visible={visible}
