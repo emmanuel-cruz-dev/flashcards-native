@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity, Text, StyleSheet, Button } from "react-native";
 import { ROUTES } from "../constants/navigation.constants";
-import { COLORS, FONT, SIZE } from "../constants/style.constants";
+import { COLORS, COMPONENT, FONT, SIZE } from "../constants/style.constants";
 import { useCards } from "../hooks/data";
 import { pluralize } from "../utils/text";
 
@@ -16,22 +16,26 @@ const styles = StyleSheet.create({
   title: {
     ...FONT.h3,
   },
-  button: {},
-  buttonTitle: {},
+  button: {
+    ...COMPONENT.button,
+  },
+  buttonTitle: {
+    ...COMPONENT.button.title,
+  },
 
   even: {
     opacity: COLORS.highlightDarker,
     card: {
       backgroundColor: COLORS.highlight,
     },
-    button: {
-      backgroundColor: COLORS.main,
-    },
     title: {
       color: COLORS.main,
     },
+    button: {
+      ...COMPONENT.button.main,
+    },
     buttonTitle: {
-      color: COLORS.highlight,
+      ...COMPONENT.button.main.title,
     },
   },
   odd: {
@@ -39,14 +43,14 @@ const styles = StyleSheet.create({
     card: {
       backgroundColor: COLORS.main,
     },
-    button: {
-      backgroundColor: COLORS.highlight,
-    },
     title: {
       color: COLORS.textLight,
     },
+    button: {
+      ...COMPONENT.button.highlight,
+    },
     buttonTitle: {
-      color: COLORS.main,
+      ...COMPONENT.button.highlight.title,
     },
   },
 });
@@ -67,8 +71,10 @@ function CategoryCard({ category, even }) {
 
       {!!cards.length && (
         <Button
+          buttonStyle={[styles.button, cardStyle.button]}
+          titleStyle={[styles.buttonTitle, cardStyle.buttonTitle]}
           title={pluralize({ quantity: cards.length, text: "Card" })}
-        ></Button>
+        />
       )}
     </TouchableOpacity>
   );
