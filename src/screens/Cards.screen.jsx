@@ -6,7 +6,7 @@ import { useCards } from "../hooks/data";
 import { Button } from "@rneui/base";
 import CardItem from "../components/CardItem";
 import { pluralize } from "../utils/text";
-import { FONT, SIZE } from "../constants/style.constants";
+import { COMPONENT, FONT, SIZE } from "../constants/style.constants";
 import UserInfo from "../wrappers/UserInfo";
 
 const styles = StyleSheet.create({
@@ -15,6 +15,14 @@ const styles = StyleSheet.create({
   },
   h2: { ...FONT.h2 },
   sub: { ...FONT.sub },
+  button: {
+    ...COMPONENT.button,
+    ...COMPONENT.button.highlight.button,
+  },
+  buttonTitle: {
+    ...COMPONENT.button.title,
+    ...COMPONENT.button.highlight.title,
+  },
 });
 
 function Cards() {
@@ -61,6 +69,8 @@ function Cards() {
       {!!active && <CardItem card={activeCard} />}
 
       <Button
+        buttonStyle={styles.button}
+        titleStyle={styles.buttonTitle}
         title={"Choose new"}
         onPress={showNewCard}
         disabled={cards.length < 2}

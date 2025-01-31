@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Text, TouchableHighlight, StyleSheet } from "react-native";
 import React, { useEffect } from "react";
 import { useModal } from "../hooks/useModal";
 import { COLORS, FONT, SIZE } from "../constants/style.constants";
@@ -34,7 +34,12 @@ function CardItem(card) {
   }, [card]);
 
   return (
-    <TouchableOpacity onPress={toggle} activeOpacity={0.5} style={styles.card}>
+    <TouchableHighlight
+      underlayColor={COLORS.mainDarker}
+      onPress={toggle}
+      activeOpacity={0.5}
+      style={styles.card}
+    >
       {visible ? (
         <Text style={styles.title}>{front}</Text>
       ) : (
@@ -43,7 +48,7 @@ function CardItem(card) {
           <Text style={styles.sub}>{detail}</Text>
         </>
       )}
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 }
 
