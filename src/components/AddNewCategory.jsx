@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useModal } from "../hooks/useModal";
 // import { useUser } from "../hooks/useUser";
 import { useUser } from "../hooks/auth";
-import { StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import { Button, FAB, Overlay } from "@rneui/base";
 import { dbCategories } from "../api/db";
-import { COLORS, COMPONENT, SIZE } from "../constants/style.constants";
+import { COLORS, COMPONENT, FONT, SIZE } from "../constants/style.constants";
 
 const styles = StyleSheet.create({
   fab: {
@@ -14,19 +14,38 @@ const styles = StyleSheet.create({
     marginVertical: SIZE.lg,
   },
   overlay: {
-    backgroundColor: COLORS.main,
-    borderRadius: SIZE.sm,
-    width: "80%",
-    padding: SIZE.md,
+    ...COMPONENT.dialog,
+  },
+  title: {
+    ...FONT.h3,
+    color: COLORS.textLight,
+    marginBottom: SIZE.lg,
   },
   input: {
     ...COMPONENT.input,
     borderBottomColor: COLORS.textLight,
     color: COLORS.textLight,
+    marginBottom: SIZE.lg,
   },
-  button: {},
-  buttonTitle: {},
-  close: {},
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  button: {
+    ...COMPONENT.button,
+    ...COMPONENT.button.highlight.button,
+    width: "auto",
+  },
+  buttonTitle: {
+    ...COMPONENT.button.title,
+    ...COMPONENT.button.highlight.title,
+  },
+  close: {
+    ...COMPONENT.button,
+    backgroundColor: "transparent",
+    width: "auto",
+    padding: 0,
+  },
   closeTitle: {},
 });
 
@@ -62,30 +81,32 @@ function AddNewCategory() {
       </View>
 
       <Overlay
-        isVisible={visible}
+        visible={visible}
         onBackdropPress={hide}
         overlayStyle={styles.overlay}
       >
         <View>
+          <Text style={styles.title}>New category</Text>
           <TextInput
             placeholder="Category name ..."
             onChangeText={setCategoryName}
+            placeholderTextColor={COLORS.detail}
             value={categoryName}
             style={styles.input}
           />
-          <View>
+          <View style={styles.buttonContainer}>
+            <Button
+              title={"Close"}
+              onPress={hide}
+              buttonStyle={styles.close}
+              titleStyle={styles.closeTitle}
+            />
             <Button
               title={"Add"}
               onPress={createNewCategory}
               disabled={!valid}
               buttonStyle={styles.button}
               titleStyle={styles.buttonTitle}
-            />
-            <Button
-              title={"Close"}
-              onPress={hide}
-              buttonStyle={styles.close}
-              titleStyle={styles.closeTitle}
             />
           </View>
         </View>

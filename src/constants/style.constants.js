@@ -5,7 +5,7 @@ export const COLORS = {
   highlightDarker: "#C7A66E",
   text: "#151515",
   textLight: "#FFFFFF",
-  detail: "#8c8c8c",
+  detail: "#dcdcdc",
   background: "#FFFFFF",
   danger: "#F82045",
 };
@@ -84,5 +84,11 @@ export const COMPONENT = {
     borderBottomWidth: 1,
     marginBottom: SIZE.sm,
     paddingTop: SIZE.sm,
+  },
+  dialog: {
+    backgroundColor: COLORS.main,
+    borderRadius: SIZE.sm,
+    width: "80%",
+    padding: SIZE.lg,
   },
 };
