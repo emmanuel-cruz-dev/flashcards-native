@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
   },
   button: {
     ...COMPONENT.button,
+    width: "auto",
+    paddingHorizontal: SIZE.lg,
+    alignSelf: "flex-end",
+    marginTop: SIZE.lg,
   },
   buttonTitle: {
     ...COMPONENT.button.title,
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
       color: COLORS.main,
     },
     button: {
-      ...COMPONENT.button.main,
+      ...COMPONENT.button.main.button,
     },
     buttonTitle: {
       ...COMPONENT.button.main.title,
@@ -47,10 +51,11 @@ const styles = StyleSheet.create({
       color: COLORS.textLight,
     },
     button: {
-      ...COMPONENT.button.highlight,
+      ...COMPONENT.button.highlight.button,
     },
     buttonTitle: {
       ...COMPONENT.button.highlight.title,
+      color: COLORS.main,
     },
   },
 });
