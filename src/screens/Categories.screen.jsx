@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import AddCategory from "../components/AddCategory";
 import CategoryCard from "../components/CategoryCard";
 import { FONT, SIZE } from "../constants/style.constants";
 import { useCategories } from "../hooks/data";
@@ -25,7 +24,6 @@ function Categories() {
         <Text style={styles.sub}>Select your set card</Text>
       </View>
 
-      <AddCategory />
       <AddNewCategory />
 
       <View>

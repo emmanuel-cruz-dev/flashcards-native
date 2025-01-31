@@ -7,18 +7,18 @@ import { useCards } from "../hooks/data";
 import { pluralize } from "../utils/text";
 
 const styles = StyleSheet.create({
-  general: {
-    card: {
-      borderRadius: SIZE.sm,
-      padding: SIZE.lg,
-      backgroundColor: "#d7d7d7",
-      marginBottom: SIZE.lg,
-    },
-    title: {
-      ...FONT.h3,
-    },
+  card: {
+    borderRadius: SIZE.sm,
+    padding: SIZE.lg,
+    backgroundColor: "#d7d7d7",
+    marginBottom: SIZE.lg,
   },
+  title: {
+    ...FONT.h3,
+  },
+
   even: {
+    opacity: COLORS.highlightDarker,
     card: {
       backgroundColor: COLORS.highlight,
     },
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     },
   },
   odd: {
+    opacity: COLORS.mainDarker,
     card: {
       backgroundColor: COLORS.main,
     },
@@ -48,23 +49,23 @@ const styles = StyleSheet.create({
   },
 });
 
-function CategoryCard(category, even) {
+function CategoryCard({ category, even }) {
   const navigation = useNavigation();
   const { name, id } = category;
   const cards = useCards(id);
-  const customStyle = styles[even ? "even" : "odd"];
+  const cardStyle = styles[even ? "even" : "odd"];
 
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate(ROUTES.cards.name, { category })}
-      style={styles.general.card}
-      activeOpacity={0.5}
+      style={[styles.card, cardStyle.card]}
+      activeOpacity={0.8}
     >
-      <Text style={styles.general.title}>{name}</Text>
+      <Text style={styles.title}>{name}</Text>
 
       {!!cards.length && (
-        <View style={[styles.button, customStyle.button]}>
-          <Text style={[styles.buttonText, customStyle.buttonText]}>
+        <View style={[styles.button, cardStyle.button]}>
+          <Text style={[styles.title, cardStyle.title]}>
             {pluralize({ noun: "Card", number: cards.length })}
           </Text>
         </View>
