@@ -5,7 +5,7 @@ import { COLORS, FONT, SIZE } from "../constants/style.constants";
 
 const styles = StyleSheet.create({
   card: {
-    height: 200,
+    height: 300,
     backgroundColor: COLORS.main,
     alignItems: "center",
     justifyContent: "center",
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   },
   sub: {
     ...FONT.sub,
+    marginTop: SIZE.sm,
     textAlign: "center",
     color: COLORS.detail,
   },
