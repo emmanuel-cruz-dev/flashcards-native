@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     marginBottom: SIZE.lg,
   },
   inputContainer: {
-    marginBottom: SIZE.lg,
+    marginBottom: SIZE.md,
   },
   input: {
     ...COMPONENT.input,
@@ -93,18 +93,21 @@ function AddNewCard() {
 
           <View style={styles.inputContainer}>
             <TextInput
+              placeholderTextColor={COLORS.detailLight}
               style={styles.input}
               value={form.front}
               placeholder="Front ..."
               onChangeText={(value) => setForm({ key: "front", value })}
             />
             <TextInput
+              placeholderTextColor={COLORS.detailLight}
               style={styles.input}
               value={form.back}
               placeholder="Back ..."
               onChangeText={(value) => setForm({ key: "back", value })}
             />
             <TextInput
+              placeholderTextColor={COLORS.detailLight}
               style={styles.input}
               value={form.detail}
               placeholder="Detail ..."
@@ -112,9 +115,19 @@ function AddNewCard() {
             />
           </View>
 
-          <View>
-            <Button title={"Add"} onPress={addNewCard} />
-            <Button title={"Close"} onPress={hide} />
+          <View style={styles.buttonContainer}>
+            <Button
+              title={"Add"}
+              onPress={addNewCard}
+              buttonStyle={styles.button}
+              titleStyle={styles.buttonTitle}
+            />
+            <Button
+              title={"Close"}
+              onPress={hide}
+              buttonStyle={styles.close}
+              titleStyle={styles.closeTitle}
+            />
           </View>
         </View>
       </Overlay>
