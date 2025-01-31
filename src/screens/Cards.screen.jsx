@@ -6,8 +6,8 @@ import { useCards } from "../hooks/data";
 import { Button } from "@rneui/base";
 import CardItem from "../components/CardItem";
 import { pluralize } from "../utils/text";
-import { COMPONENT, FONT, SIZE } from "../constants/style.constants";
 import UserInfo from "../wrappers/UserInfo";
+import { COMPONENT, FONT, SIZE } from "../constants/style.constants";
 
 const styles = StyleSheet.create({
   textContainer: {

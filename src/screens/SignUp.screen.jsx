@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { Button } from "@rneui/base";
 import to from "await-to-js";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useCallback, useState, useEffect } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { auth } from "../api/db";
 import { MESSAGES } from "../constants/errors.constants";

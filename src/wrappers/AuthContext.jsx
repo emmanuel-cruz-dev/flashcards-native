@@ -1,5 +1,5 @@
-import React from "react";
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { auth } from "../api/db";
 
 export const AuthContext = createContext();
@@ -16,3 +16,7 @@ export function AuthContextWrapper({ children }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
+
+AuthContextWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+};
